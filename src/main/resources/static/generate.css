@@ -1,0 +1,304 @@
+/* generate.css */
+
+/* 1. 생성 페이지 레이아웃 조정 */
+/* 문제 생성 페이지의 핑크 배경은 버튼 위치를 위해 relative로 설정합니다. */
+.generate-background {
+    position: relative;
+    padding: 30px;
+}
+
+/* 2. 생성하기 버튼 스타일 및 위치 */
+.generate-button {
+    /* 오른쪽 하단 고정 위치 */
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    /* 스타일 */
+    background-color: #9c27b0; /* 보라색 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    z-index: 10; /* 다른 요소 위에 표시 */
+}
+
+.generate-button:hover {
+    background-color: #7b1fa2;
+}
+
+/* --- 모달(Modal) 스타일 --- */
+
+/* 모달 전체 배경 */
+.modal {
+    display: none; /* 초기에는 숨김 */
+    position: fixed;
+    z-index: 20; /* 가장 위에 위치 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* 투명한 검은색 배경 */
+}
+
+/* 모달 내용 박스 */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 화면 중앙에 위치 (수직, 수평) */
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px; /* 최대 너비 설정 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* 닫기 버튼 */
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+/* 폼 요소 스타일 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group select,
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.radio-group label {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+/* 모달 하단 및 제출 버튼 */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.modal-submit-button {
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-submit-button:hover {
+    background-color: #7b1fa2;
+}
+
+/* 사이드바 단원 목록 스타일 */
+.unit-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.unit-item {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 0;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.unit-item:hover {
+    color: #9c27b0; /* 마우스 오버 시 보라색 */
+}
+
+.unit-item.active {
+    color: black;
+    font-weight: bold;
+    /* 선택된 항목 강조 (선택 사항) */
+    /* border-left: 3px solid #9c27b0; */
+    /* padding-left: 5px; */
+}
+
+/* 메인 콘텐츠 제목 스타일 */
+.content-title {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 문제 목록 컨테이너 스타일 */
+.problem-list-container {
+    padding-bottom: 80px; /* 생성 버튼과의 간격 확보 */
+}
+
+/* 문제 목록이 없을 때 표시될 텍스트 스타일 */
+.placeholder-text {
+    color: #888;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 18px;
+}
+
+.placeholder-text-small {
+    color: #aaa;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* --- 문제 검토 모달 스타일 --- */
+
+/* 검토 모달 내용 박스는 조금 더 크게 설정 */
+.review-content {
+    max-width: 700px;
+    margin: 5% auto;
+}
+
+.review-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* 버튼 사이 간격 */
+}
+
+.modal-cancel-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- 생성된 문제 목록 스타일 --- */
+
+.generated-problem-list {
+    max-height: 400px; /* 스크롤 가능하도록 높이 제한 */
+    overflow-y: auto;
+    padding-right: 10px; /* 스크롤바 공간 */
+}
+
+.generated-problem-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+
+.problem-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.problem-type {
+    background-color: #e6e6fa; /* 연한 보라색 배경 */
+    color: #800080;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.problem-script {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.problem-answer {
+    font-weight: bold;
+    color: #28a745; /* 녹색 */
+    font-size: 14px;
+    border-top: 1px dashed #eee;
+    padding-top: 5px;
+}
+
+.no-problems {
+    text-align: center;
+    color: #dc3545;
+    padding: 30px;
+    background-color: #fff0f0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+/* 로딩 스피너 기본 스타일 */
+.spinner-border {
+    display: none; /* 초기에는 숨김 */
+    width: 1rem;
+    height: 1rem;
+    vertical-align: -0.125em;
+    border: 0.15em solid currentColor;
+    border-right-color: transparent; /* 로딩 애니메이션 효과를 위해 투명하게 설정 */
+    border-radius: 50%;
+    animation: spinner-border 0.75s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 버튼이 로딩 중일 때 텍스트를 숨기고 스피너를 보이게 합니다. */
+.modal-submit-button.loading #submitText {
+    display: none;
+}
+.modal-submit-button.loading #loadingSpinner {
+    display: inline-block;
+}
