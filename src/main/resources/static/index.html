@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학교 선택</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="school-container">
+    <h1>내 학교 선택하기</h1>
+
+    <form id="schoolForm" class="school-form">
+        <label for="schoolInput">소속 학교</label>
+        <input
+                type="text"
+                id="schoolInput"
+                placeholder="예) 용호중학교"
+                required
+        />
+
+        <button type="submit">시작하기</button>
+    </form>
+</div>
+
+<script>
+    function generateInviteCode() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let code = '';
+        for (let i = 0; i < 8; i++) {
+            const idx = Math.floor(Math.random() * chars.length);
+            code += chars.charAt(idx);
+        }
+        return code;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('schoolForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const school = document.getElementById('schoolInput').value.trim();
+            if (!school) {
+                alert('학교 이름을 입력해 주세요.');
+                return;
+            }
+
+            // 학교 이름 저장
+            localStorage.setItem('schoolName', school);
+
+            // 초대코드가 없을 때만 새로 생성 (한 번 생성 후 재사용)
+            let inviteCode = localStorage.getItem('inviteCode');
+            if (!inviteCode) {
+                inviteCode = generateInviteCode();
+                localStorage.setItem('inviteCode', inviteCode);
+            }
+
+            // 메인 페이지(지금 main.html)로 이동
+            window.location.href = 'main.html';
+        });
+    });
+</script>
+</body>
+</html>

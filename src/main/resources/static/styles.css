@@ -1,0 +1,196 @@
+/* 전역 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* ⚠️ 수정: 바깥쪽 배경을 흰색으로 변경하거나, 컨테이너가 꽉 채우도록 설정 */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 1. 상단 내비게이션 바 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #555;
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.nav-item.active {
+    color: #9c27b0; /* ⚠️ 수정: 활성화된 텍스트 색상을 보라색으로 변경 */
+    font-weight: bold;
+    border-bottom: 3px solid #9c27b0; /* 보라색 밑줄 유지 */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+/* 2. 전체 레이아웃 컨테이너 (사이드바 + 메인 콘텐츠) */
+.main-container {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    /* ⚠️ 수정: 좌우 마진 및 box-shadow 제거하여 전체 너비를 사용 */
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* 3. 좌측 사이드바 */
+.sidebar {
+    width: 200px;
+    /* padding: 30px 20px 30px 30px; -> 이미지와 더 유사하도록 수정 */
+    padding: 30px 20px 30px 30px;
+    flex-shrink: 0;
+    border-right: 1px solid #eee;
+}
+
+.sidebar-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.sidebar-title .fa-caret-down {
+    color: black;
+}
+
+.student-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-item {
+    text-decoration: none;
+    color: #555;
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+.student-item.active {
+    color: black;
+    font-weight: bold;
+}
+
+/* 4. 메인 콘텐츠 영역 및 연한 핑크 배경 */
+.content {
+    flex-grow: 1;
+    /* padding: 30px; -> 이미지와 더 유사하도록 수정 */
+    padding: 0;
+    background-color: white;
+}
+
+.pink-background {
+    background-color: #f7e8fb; /* 연한 핑크색 배경 */
+    height: 100%;
+    /* ⚠️ 수정: 이미지에 맞춰 좌측 상단 모서리만 둥글지 않게, 나머지는 둥글게 */
+    border-radius: 0 8px 8px 0;
+    box-sizing: border-box;
+    min-height: 100%; /* 부모 컨테이너 높이 꽉 채움 */
+    margin-left: 0; /* 사이드바와 붙도록 마진 제거 */
+}
+
+/* (학생 카드 관련 스타일은 동적 추가 시 필요하므로 여기서는 생략합니다) */
+
+.student-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    padding: 30px; /* 핑크 배경 내부에 여백 추가 */
+}
+
+.student-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    height: 220px;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.school-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    background: #fff;
+}
+
+.school-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.school-form input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.school-form button {
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #ff6f9c;
+    color: white;
+    cursor: pointer;
+}
+
+.school-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 0.85rem;
+}
+
+.school-name {
+    font-weight: 600;
+}
+
+.invite-code {
+    color: #888;
+    font-size: 0.8rem;
+}
